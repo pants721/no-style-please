@@ -73,12 +73,9 @@ table, th, td {
   padding: 0.4rem;
 }
 
-code {
-  color: white;
-  background: black;
-}
-
-pre {
+:not(pre) > code {
+	background-color: lightgrey;
+	color: black;
 }
 
 pre code {
