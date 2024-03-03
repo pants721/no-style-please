@@ -16,7 +16,7 @@
 <ul>
 {% for page in pages %}
     <li>
-        <a href="{{ page.permalink | safe }}">{{ page.date }} - {{ page.title }}</a>
+		<a href="{{ page.permalink | safe }}">{{ page.title }}{% if page.date %} ({{page.date}}){% endif %}</a>
         <br />
         {{ page.description }}
     </li>
