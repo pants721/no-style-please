@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block header %}
-<p><a href="{{ current_path }}">..</a>/{{ term.slug }}/</p>
-<h1>{{ term.name }}</h1>
+<!-- FIXME: This sucks -->
+<p><a href="{{current_url | trim_end_matches(pat=term.slug ~ "/")}}">..</a>/{{ term.slug }}/</p>
 {% endblock header %}
 
 {% block content %}
@@ -14,7 +14,7 @@
 <ul>
 {% for page in pages %}
     <li>
-        <a href="{{ page.permalink | safe }}">{% if page.date %}{{ page.date }} - {% endif %}{{ page.title }}</a>
+		<a href="{{ page.permalink | safe }}">{{ page.title }}{% if page.date %}</a> <span class="post-date">({{page.date}})</span>{% endif %}
         <br />
         {{ page.description }}
     </li>
