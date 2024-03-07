@@ -32,21 +32,6 @@ Table of contents
 {% endblock content %}
 
 {% block footer %}
-<p class="taxonomies">
-{% if page.taxonomies.tags %}
-{% for tag in page.taxonomies.tags %}
-<a href="/tags/{{ tag | slugify }}">#{{ tag }}</a>
-{% endfor %}
-{% if page.taxonomies.categories %}
-{% for category in page.taxonomies.categories %}
-<a href="/categories/{{ category | slugify }}">+{{ category }}</a>
-{% endfor %}
-{% endif %}
-{% if page.taxonomies.contexts %}
-{% for context in page.taxonomies.contexts %}
-<a href="/contexts/{{ context | slugify }}">@{{ context }}</a>
-{% endfor %}
-{% endif %}
-{% endif %}
-</p>
+<a class="revision" href="https://github.com/pants721/pants721.github.io/commits/main/content{{page.path | trim_end_matches(pat="/")}}.md">(revision history)</a>
+<p>{{page.path}}</p>
 {% endblock footer %}
