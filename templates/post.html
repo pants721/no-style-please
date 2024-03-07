@@ -1,0 +1,7 @@
+{% extends "page.html" %}
+
+{% block footer %}
+<a class="revision" href="https://github.com/pants721/pants721.github.io/commits/main/content{{page.path | trim_end_matches(pat="/")}}.md">revision history</a>
+
+{{ super() }}
+{% endblock footer %}
