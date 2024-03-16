@@ -88,6 +88,15 @@ pre code {
   overflow-x: auto;
   white-space: pre-wrap;
   padding: 1rem;
+  // padding-top: 1.5rem;
+  // padding-bottom: 1.5rem;
+  font-weight: bold;
+}
+
+pre {
+  border-radius: 10px;
+  background-color: black;
+  overflow: auto;
 }
 
 blockquote {
@@ -115,7 +124,9 @@ img {
   }
 }
 
-nav, .taxonomies { text-align: center; }
+nav, .taxonomies { 
+    text-align: center; 
+}
 
 .post-date {
 	color: #7d7d7d;

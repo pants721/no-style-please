@@ -1,0 +1,8 @@
+{% extends "section.html" %}
+
+{% block header %}
+<p><a href="{{ section.path }}..">..</a>{{ section.path }}{ <a href="/tags">tags</a>, <a href="/categories">categories</a> }</p>
+
+<h1>{{ section.title }}</h1>
+
+{% endblock header %}
