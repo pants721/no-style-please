@@ -2,10 +2,8 @@
 
 {% block header %}
 {% set greeting = taxonomy.name ~ ".iter();" %}
-{{ super() }}
-<p><a href="/blog">..</a>{{ current_path }}</p>
+<p><a href="/blog">..</a>{{ current_path }} -> {{ super() }}</p>
 {% endblock header %}
-
 {% block content %}
 <ul>
 {% for term in terms %}
