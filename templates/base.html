@@ -10,7 +10,7 @@
         {% set title = page.title ~ " :: " ~ config.title %}
         {% elif section.title %}
         {% set title = section.title ~ " :: " ~ config.title %}
-        {% elif taxonomy.name %}
+        {% elif taxonomy.title %}
         {% set title = taxonomy.name ~ " :: " ~ config.title %}
         {% elif config.title %}
         {% set title = config.title %}
@@ -104,7 +104,7 @@
         <link rel="stylesheet" href="{{ get_url(path='style.css', trailing_slash=false) | safe }}"/>
         {% endblock css %}
     </head>
-    <body theme="auto">
+    <body class="dark-mode">
         <div class="w">
             <header>
                 {% if config.extra.header_nav %}
@@ -135,6 +135,37 @@
                 {% endif %}
             </footer>
         </div>
+        <div class="dark-mode-buttons">
+            <button class="dark-mode-button" id="dark-mode-on"><img src="{{ get_url(path='svg/dark_mode.svg') }}" width="24" height="24" alt="Dark mode" aria-label="dark mode toggle" title="Dark mode"></button>
+            <button class="dark-mode-button" id="dark-mode-off"><img src="{{ get_url(path='svg/light_mode.svg') }}" width="24" height="24" alt="Light mode" aria-label="light mode toggle" title="Light mode"></button>
+        </div>
+        <script>
+            const cls = document.body.classList;
+            const getSessionTheme = sessionStorage.getItem("theme");
+            if (getSessionTheme === "dark") {
+                cls.toggle("dark-mode", true);
+            } else if (getSessionTheme === "light") {
+                cls.toggle("dark-mode", false);
+            } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                cls.toggle("dark-mode", true);
+            }
+
+            document.getElementById("dark-mode-on").addEventListener("click", function(e) {
+                cls.toggle("dark-mode", true);
+                sessionStorage.setItem("theme", "dark");
+            });
+                document.getElementById("dark-mode-off").addEventListener("click", function(e) {
+                cls.toggle("dark-mode", false);
+                sessionStorage.setItem("theme", "light");
+            });
+        </script>
+        <noscript>
+            <style>
+                .dark-mode-buttons {
+                    display: none;
+                }
+            </style>
+        </noscript>
     </body>
 </html>
-        
+
