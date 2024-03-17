@@ -1,4 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap')
+@font-face {
+  font-family: 'MonaspaceKrypton';
+  src:  url('/fonts/MonaspaceKryptonVarVF[wght\,wdth\,slnt].woff2') format('woff2'),
+        url('/fonts/MonaspaceKryptonVarVF[wght\,wdth\,slnt].woff') format('woff');
+}
 
 // -------------- THEME SWITCHER -------------- //
 @mixin dark-appearance {
@@ -34,10 +39,11 @@ html { height: 100%; }
 body {
   color: black;
   font-size: 16px;
-  font-family: "Fira Code", monospace;
+  font-family: MonaspaceKrypton, "Fira Code", monospace;
   font-optical-sizing: auto;
   font-weight: medium;
   font-style: normal;
+    font-size: 1em;
   line-height: 1.4;
   margin: 0;
   min-height: 100%;
@@ -57,7 +63,7 @@ li { margin: 0.4rem 0; }
 *:target { background: yellow; }
 
 .w {
-  max-width: 640px;
+  max-width: 740px;
   margin: 0 auto;
   padding: 4rem 2rem;
 }
@@ -81,6 +87,10 @@ table, th, td {
 :not(pre) > code {
 	background-color: lightgrey;
 	color: black;
+    padding: 0.2em 0.4em;
+    margin: 0;
+    font-size: 1em;
+    border-radius: 3px;
 }
 
 pre code {
@@ -90,7 +100,7 @@ pre code {
   padding: 1rem;
   // padding-top: 1.5rem;
   // padding-bottom: 1.5rem;
-  font-weight: bold;
+  font-weight: 500;
 }
 
 pre {
@@ -130,4 +140,18 @@ nav, .taxonomies {
 
 .post-date {
 	color: #7d7d7d;
+}
+
+.page-content {
+  font-family: "Fira Code", monospace;
+}
+
+.greeting {
+    @extend code;
+    background-color: #e6e6e6 !important;
+    font-size: 85% !important;
+
+    padding: 5px !important;
+    border-radius: 5px !important;
+    opacity: 50%;
 }

@@ -1,8 +1,8 @@
 {% extends "section.html" %}
 
 {% block header %}
+{% if section.extra.greeting %}
+    <span class="greeting">{{ section.extra.greeting }}</span>
+{% endif %}
 <p><a href="{{ section.path }}..">..</a>{{ section.path }}{ <a href="/tags">tags</a>, <a href="/categories">categories</a> }</p>
-
-<h1>{{ section.title }}</h1>
-
 {% endblock header %}
