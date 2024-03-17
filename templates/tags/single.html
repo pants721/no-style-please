@@ -4,3 +4,4 @@
   {% set atom_path = "tags/" ~ term.name ~ "/atom.xml" %}
   <link rel="alternate" type="application/atom+xml" title="RSS" href="{{ get_url(path=atom_path, trailing_slash=false) }}">
 {% endblock feed %}
+
